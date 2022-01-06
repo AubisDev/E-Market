@@ -2,7 +2,9 @@ module.exports = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
+    
   ],
+  safelist: ['shadow-blue-600', 'shadow-pink-600', 'shadow-purple-600', 'text-blue-500','text-red-500', 'text-green-500', 'text-orange-500','text-yellow-500','text-gray-500'  ],
   theme: {
     extend: {
         height: {

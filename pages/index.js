@@ -8,7 +8,9 @@ import { Typography } from '@mui/material';
 import { CategoriesLink } from '../styles/MUIstyles';
 import SlideShow from '../components/SlideShow';
 import Discover from '../components/Discover/Discover';
-import Head from 'next/head';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowCircleDown } from '@fortawesome/free-solid-svg-icons'
+
 
 export async function getStaticProps() {
   const merchant = await commerce.merchants.about();
@@ -41,7 +43,11 @@ export default function IndexPage({ merchant, categories, products }) {
       </section>
       <div className='bg-divider-bg bg-center h-40 w-screen mt-20 shadow-md '> 
       
-          <p className='relative top-1/2 transform -translate-y-1/2 w-1/2 m-auto text-3xl'>Check out last update in our stuck</p>
+          <p className='relative top-1/2 transform -translate-y-1/2 w-2/3 m-auto text-3xl '
+            >Check out last update in our stuck 
+            <FontAwesomeIcon icon={faArrowCircleDown} className='text-gray-600 ml-2 animate-bounce duration-200  '/>
+          </p>
+          
       </div>
       <section className='grid grid-cols-2  gap-4 w-90vw m-auto mt-20 '>
       {categories.map( category => <Discover key={category.id} category={category} /> )}
