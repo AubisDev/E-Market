@@ -19,11 +19,10 @@ const Discover = ({category}) => {
     }, [slug])
 
 
-    console.log(slug)
     return (
-        <div className='w-4/5 h-auto  rounded-lg flex flex-col mb-10'>
+        <div className='w-4/5 h-auto m-0 rounded-lg flex flex-col mb-10'>
            <div 
-                className='p-3 w-full text-2xl text-white font-bold border-b-2 border-blue-600/60'>
+                className='p-3 w-full text-2xl text-white font-bold border-b-2 border-blue-600/60 m-0'>
                     <button 
                         className='w-full m-auto font-semibold text-blue-600'
                         onClick={ () => router.push(`/categories/${slug}`)}

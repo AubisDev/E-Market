@@ -33,7 +33,7 @@ export default function IndexPage({ merchant, categories, products }) {
   // console.log(products)
   // console.log(merchant)
   return (
-    <div className='w-screen h-screen'>
+    <div className='w-screen h-screen overflow-x-hidden '>
 
       <header className='w-full h-10hp '>
         <Navbar />          
@@ -49,7 +49,7 @@ export default function IndexPage({ merchant, categories, products }) {
           </p>
           
       </div>
-      <section className='grid grid-cols-2  gap-4 w-90vw m-auto mt-20 '>
+      <section className='grid grid-cols-2  gap-4 w-90vw m-auto mt-20 overflow-x-hidden'>
       {categories.map( category => <Discover key={category.id} category={category} /> )}
 
       </section>

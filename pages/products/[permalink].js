@@ -10,15 +10,43 @@ import { faPlusSquare } from '@fortawesome/free-solid-svg-icons'
 import { faMinusSquare } from '@fortawesome/free-solid-svg-icons'
 import ClothesSizes from "../../components/ProductCard/ClothesSizes/ClothesSizes";
 import { faArrowCircleLeft } from '@fortawesome/free-solid-svg-icons'
+import Swal from "sweetalert2";
+
+// export async function getStaticProps({ params }) {
+//   const { permalink } = params;
+
+//   const product = await commerce.products.retrieve(permalink, {
+//     type: 'permalink',
+//   });
+
+//   return {
+//     props: {
+//       product,
+//     },
+//   };
+// }
 
 
-export async function getStaticProps({ params }) {
+
+// export async function getStaticPaths() {
+//   const { data: products } = await commerce.products.list();
+
+//   return {
+//     paths: products.map((product) => ({
+//       params: {
+//         permalink: product.permalink,
+//       },
+//     })),
+//     fallback: true,
+//   };
+// }
+
+export async function getServerSideProps({params}) {
   const { permalink } = params;
-
   const product = await commerce.products.retrieve(permalink, {
-    type: 'permalink',
+        type: 'permalink',
   });
-
+    
   return {
     props: {
       product,
@@ -26,40 +54,51 @@ export async function getStaticProps({ params }) {
   };
 }
 
-
-
-export async function getStaticPaths() {
-  const { data: products } = await commerce.products.list();
-
-  return {
-    paths: products.map((product) => ({
-      params: {
-        permalink: product.permalink,
-      },
-    })),
-    fallback: true,
-  };
-}
-
 export default function ProductPage({ product }) {
 
   
   const { setCart } = useCartDispatch()  //Action to add items to cart  
-  const { name, price, image, categories, variant_groups} = product; 
+  const {id, name, price, image, categories, variant_groups} = product; 
   const category = categories[0]; // from the first items of the array of categories from this items belongs 
   const variants = variant_groups[0];
   const variantSizes = variant_groups[1];
-  // const { result } = stripHtml(description);  
   const [bgCategory, setBgCategory] = useState('');
   const [shadowColor, setShadowColor] = useState('');
   const [quantity, setQuantity] = useState(1);
-  
-  const addToCart = () => {
-    commerce.cart.add( id, quantity ).then( ({cart}) => setCart( cart ) )
+  const [sizeSelected, setSizeSelected] = useState('');
+  const [colorSelected, setColorSelected] = useState('')
+  const colorVariantId = variants.id;
+  const sizeVariantId = variantSizes.id;
+
+  console.log({variants, variantSizes})
+
+  const addToCart = (id, quantity, color, size) => {
+    if( color === '' || size === '' ) {
+      Swal.fire(
+        'Error adding to cart',
+        'Please select color and size before adding to cart',
+        'error'
+      )
+      return
+    }
+    commerce.cart.add( id, quantity,{ 
+      [`${String(colorVariantId)}`] : colorSelected,
+      [`${String(sizeVariantId)}`] : sizeSelected
+      })
+      .then( ({cart}) => {
+      setCart( cart )
+      Swal.fire(
+        'Sucefully',
+        'Item has been added to cart, check cart page for checkout',
+        'success'
+      )
+    } )
     .catch( error => console.log(error))
+    
+
   }
 
-
+  console.log({ [`${String(colorVariantId)}`] : colorSelected, [`${String(sizeVariantId)}`] : sizeSelected   })
 
   useEffect(() => {
     if( category.slug === 'electronics' ){
@@ -125,13 +164,13 @@ export default function ProductPage({ product }) {
 
                  {/*  --- Color Selection---  */}
                 <div className="w-full flex m-auto ">
-               { categories[1].name === 'Clothes' &&  <ClothesColors colors={variants.options} /> }
+               { categories[1].name === 'Clothes' &&  <ClothesColors colors={variants.options} setColorSelected={setColorSelected} colorSelected={colorSelected}/> }
                </div>
 
                 {/*  --- Size Selection---  */}
                 <div className="w-full flex m-auto ">
 
-               { categories[1].name === 'Clothes' &&  <ClothesSizes sizes={variantSizes.options} /> }
+               { categories[1].name === 'Clothes' &&  <ClothesSizes sizes={variantSizes.options} setSizeSelected={setSizeSelected} /> }
                </div>
 
                 {/*  --- Quantity Selection---  */}
@@ -159,7 +198,7 @@ export default function ProductPage({ product }) {
                   {/*  --- Button for adding items to cart ---  */}
                   <button
                     className="flex m-auto text-white text-xl mt-6  duration-100 ease-in hover:border-b-2 border-white"
-                    onClick={ () => setOpenAddToCartModal( true )}
+                    onClick={ () => addToCart( id, quantity, sizeSelected, colorSelected)}
                   > 
                     Add to cart
                     <span className="text-xl ml-2   "><FontAwesomeIcon icon={faShoppingCart } className="animate-bounce"/></span>

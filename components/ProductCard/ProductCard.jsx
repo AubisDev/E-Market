@@ -19,7 +19,7 @@ const ProductCard = ({item}) => {
                     <div className='h-3/4 '> <img src={ image.url } alt={ name } className='w-full h-full p-4 rounded-full bg-gray-300 group-hover:scale-105 ease-in-out duration-300 shadow-md hover:shadow-lg'/></div>
                     {/* <div className='w-full bg- h-0.5 mt-2 m-auto'></div> */}
                     <div className='mt-2 bg-white'>
-                        <p className='font-semibold text-black/80 tracking-wide text-lg break-normal'>{name}</p>
+                        <p className='font-semibold text-black/80 tracking-wide text-lg break-normal m-auto text-center w-32'>{name}</p>
                         {/* <p className=' font-semibold text-xl text-blue-900'>{price.formatted_with_symbol}</p> */}
                     </div>
             </div>
