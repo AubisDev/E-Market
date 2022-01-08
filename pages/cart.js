@@ -7,6 +7,7 @@ import { faCubes } from '@fortawesome/free-solid-svg-icons'
 import { faCube } from '@fortawesome/free-solid-svg-icons'
 import { faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 import { faCircle } from '@fortawesome/free-solid-svg-icons'
+import Footer from '../components/Footer/Footer';
 
 function CartItems({ name, quantity, line_total, id, image, price, selected_options }) {
 
@@ -84,7 +85,7 @@ export default function CartPage() {
 
     return(
        (
-           <div className="w-screen h-screen">
+           <div className="w-screen h-screen overflow-x-hidden">
                 <div style={{ height: '10vh' }}>
                     <Navbar/>
                 </div>
@@ -140,6 +141,9 @@ export default function CartPage() {
                     </div>
 
                 </div>
+                <footer className='w-full h-25vh bg-gray-800' id='footer'>
+                    <Footer/>
+                </footer>
               
            </div>
        )

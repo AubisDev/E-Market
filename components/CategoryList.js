@@ -5,17 +5,13 @@ import Category from "./Category";
 export default function CategoryList({ categories }) {
   if (!categories) return null;
 
+  console.log(categories)
+
   return (
-    <ul>
+    <div className="grid grid-cols-4 w-full p-2">
       {categories.map((category) => (
-        <li key={category.slug}>
-          <Link href={`/categories/${category.slug}`}>
-            <a>
-              <Category {...category} />
-            </a>
-          </Link>
-        </li>
+              <Category key={category.id} category = {category} />
       ))}
-    </ul>
+    </div>
   );
 }

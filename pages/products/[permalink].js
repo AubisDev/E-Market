@@ -11,6 +11,8 @@ import { faMinusSquare } from '@fortawesome/free-solid-svg-icons'
 import ClothesSizes from "../../components/ProductCard/ClothesSizes/ClothesSizes";
 import { faArrowCircleLeft } from '@fortawesome/free-solid-svg-icons'
 import Swal from "sweetalert2";
+import { useRouter } from "next/router";
+import Footer from "../../components/Footer/Footer";
 
 // export async function getStaticProps({ params }) {
 //   const { permalink } = params;
@@ -56,7 +58,7 @@ export async function getServerSideProps({params}) {
 
 export default function ProductPage({ product }) {
 
-  
+  const router = useRouter();
   const { setCart } = useCartDispatch()  //Action to add items to cart  
   const {id, name, price, image, categories, variant_groups} = product; 
   const category = categories[0]; // from the first items of the array of categories from this items belongs 
@@ -70,7 +72,6 @@ export default function ProductPage({ product }) {
   const colorVariantId = variants.id;
   const sizeVariantId = variantSizes.id;
 
-  console.log({variants, variantSizes})
 
   const addToCart = (id, quantity, color, size) => {
     if( color === '' || size === '' ) {
@@ -97,8 +98,6 @@ export default function ProductPage({ product }) {
     
 
   }
-
-  console.log({ [`${String(colorVariantId)}`] : colorSelected, [`${String(sizeVariantId)}`] : sizeSelected   })
 
   useEffect(() => {
     if( category.slug === 'electronics' ){
@@ -139,7 +138,8 @@ export default function ProductPage({ product }) {
       
       <div className="w-3/5 m-auto"  style={{ height: '90vh' }}>
         {/*  --- Back Button ---  */}
-        <button 
+        <button
+          onClick={() => router.back()} 
           className="absolute left-0 py-2 px-4 ml-5 mt-5 border-2 border-gray-600 hover:bg-gray-100 duration-200 rounded-sm">
           <FontAwesomeIcon icon={faArrowCircleLeft} size="lg" />  Back 
         </button>
@@ -212,6 +212,9 @@ export default function ProductPage({ product }) {
         </div>
         
       </div>
+      <footer className='w-full h-25vh bg-gray-800' id='footer'>
+          <Footer/>
+      </footer>
     </React.Fragment>
   );
 }

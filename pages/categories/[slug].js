@@ -9,7 +9,7 @@ import React from "react";
 export async function getStaticProps({ params }) {
   const { slug } = params;
 
-  const category = await commerce.categories.retrieve(slug, {
+  const categories = await commerce.categories.retrieve(slug, {
     type: "slug",
   });
 
@@ -21,7 +21,7 @@ export async function getStaticProps({ params }) {
 
   return {
     props: {
-      category,
+      categories,
       products,
     },
   };
@@ -43,10 +43,13 @@ export async function getStaticPaths() {
 
 
 
-export default function CategoryPage({ category, products }) {
+export default function CategoryPage({ categories, products }) {
+
+    console.log(categories)
     return (
       <React.Fragment>
         <h1>{category.name}</h1>
+
   
         <ProductList products={products} />
       </React.Fragment>

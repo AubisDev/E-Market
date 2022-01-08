@@ -41,23 +41,23 @@ const Navbar = () => {
             </button>
             <button 
               className={`${btnStyles} mx-10`}
-              onClick={ () => router.push('/contact')}
+              onClick={ () => document.querySelector('#footer').scrollIntoView({ behavior: 'smooth' })}
             >
                 Contact
             </button>
            
         </div>
-        <div>
-        <button 
-                className={cartBtn}
-                onClick={ () => router.push('/cart')}
-              >
-                <IconButton aria-label="cart" sx={{mr: 2}}>
-                  <StyledBadge badgeContent={line_items.length} color='secondary'>
-                    <ShoppingCartIcon />
-                  </StyledBadge>
-                </IconButton>
-              </button>
+        <div className='flex flex-row'>
+          <button 
+            className={cartBtn}
+            onClick={ () => router.push('/cart')}
+          >
+            <IconButton aria-label="cart" sx={{mr: 2}}>
+              <StyledBadge badgeContent={line_items.length} color='secondary'>
+                <ShoppingCartIcon />
+              </StyledBadge>
+            </IconButton>
+          </button>
           <button 
             className={loginBtn}
             onClick={ () => router.push('/login')}
