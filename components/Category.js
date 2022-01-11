@@ -6,6 +6,7 @@ import { faArrowCircleRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 const Category = ({ category }) => {
   const {name, children, slug } = category;
+
   return (
     <div className='mr-5  '>
       <Link href={`/categories/${slug}`}>
@@ -13,7 +14,7 @@ const Category = ({ category }) => {
       </Link>
       <ul className='flex flex-col '>
         {children.map( child => (
-          <Link href={`/categories/${child.slug}`} key={child.id} >
+          <Link href={`/categories/${slug}/${child.slug}`} key={child.id} >
               <a className='my-4 italic ml-5 font-text-1 hover:font-semibold hover:text-blue-900 hover:scale-110 duration-300 '>{child.name}</a>
           </Link>
         ) )}

@@ -40,9 +40,6 @@ export default function IndexPage({ merchant, categories, products }) {
   return (
     <div className='w-screen h-screen overflow-x-hidden '>
 
-      <header className='w-full h-10hp '>
-        <Navbar />          
-      </header>
       <section className='w-full  flex justify-center mt-10 animate__animated animate__fadeIn animate__slower'>
         <SlideShow/>
       </section>
@@ -58,8 +55,8 @@ export default function IndexPage({ merchant, categories, products }) {
       {categories.map( category => <Discover key={category.id} category={category} /> )}
 
       </section>
-      <footer className='w-full h-25vh bg-gray-800' id='footer'>
-        <Footer/>
+      <footer className='w-full h-25vh bg-gray-800 ' id='footer'>
+         <Footer/>
       </footer>
     </div>
   );

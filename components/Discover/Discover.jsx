@@ -28,6 +28,7 @@ const Discover = ({category}) => {
                     <button 
                         className='w-full m-auto font-semibold text-blue-600'
                         onClick={ () => router.push(`/categories/${slug}`)}
+                        name={`categorie-${slug}`}
                     >
                     - {name} - 
                     </button>

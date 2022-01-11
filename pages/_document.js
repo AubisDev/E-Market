@@ -4,7 +4,9 @@ import Document, { Html, Head, Main, NextScript } from 'next/document'
 class MyDocument extends Document {
     render() {
       return (
-        <Html>
+        <Html
+          lang='en'
+        > 
           <Head>
             <link rel="preconnect" href="https://fonts.googleapis.com"/>
             <link rel="preconnect" href="https://fonts.gstatic.com" />
@@ -14,6 +16,10 @@ class MyDocument extends Document {
               rel="stylesheet"
               href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
             />
+            <meta name='description' content='This website is a E-Commerce that i made for practicing react and nextjs ' />
+            
+             
+             <meta property="og:title" content="E-Store: my new E-commerce" key="title" />
          </Head>
           <body>
             <Main />

@@ -132,15 +132,14 @@ export default function ProductPage({ product }) {
 
   return (
     <React.Fragment>
-      <div style={{ height: '10vh' }}>
-        <Navbar/>
-      </div>
       
       <div className="w-3/5 m-auto"  style={{ height: '90vh' }}>
         {/*  --- Back Button ---  */}
         <button
           onClick={() => router.back()} 
-          className="absolute left-0 py-2 px-4 ml-5 mt-5 border-2 border-gray-600 hover:bg-gray-100 duration-200 rounded-sm">
+          className="absolute left-0 py-2 px-4 ml-5 mt-5 border-2 border-gray-600 hover:bg-gray-100 duration-200 rounded-sm"
+          name="goback"  
+        >
           <FontAwesomeIcon icon={faArrowCircleLeft} size="lg" />  Back 
         </button>
         {/*  --- Container ---  */}
@@ -178,6 +177,7 @@ export default function ProductPage({ product }) {
                   <button
                       className="shadow-md active:translate-y-1"
                       onClick={increaseQuantity}
+                      name="increase"
                   >
                     <FontAwesomeIcon icon={faPlusSquare} size='2x' className="" />
                   </button>
@@ -185,6 +185,7 @@ export default function ProductPage({ product }) {
                   <button
                     className="shadow-md active:translate-y-1"
                     onClick={decreaseQuantity}
+                    name="decrease"
                   >
                     <FontAwesomeIcon icon={faMinusSquare} size='2x' />
                   </button>
@@ -199,6 +200,7 @@ export default function ProductPage({ product }) {
                   <button
                     className="flex m-auto text-white text-xl mt-6  duration-100 ease-in hover:border-b-2 border-white"
                     onClick={ () => addToCart( id, quantity, sizeSelected, colorSelected)}
+                    name="addToCart"
                   > 
                     Add to cart
                     <span className="text-xl ml-2   "><FontAwesomeIcon icon={faShoppingCart } className="animate-bounce"/></span>

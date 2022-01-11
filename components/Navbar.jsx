@@ -21,9 +21,9 @@ const Navbar = () => {
 
 
   const router = useRouter();
-  const container = 'w-full h-full bg-white shadow-md text-blue-800 flex justify-between items-center flex-row ';
-  const btnStyles = ' hover:border-b-2 hover:border-blue-800 duration-100 ease-in'
-  const loginBtn = 'mr-8 border border-blue-800 py-2 px-4 duration-300 ease-in-out rounded-md hover:bg-blue-800 hover:text-white ';
+  const container = 'w-full h-10vh sticky top-0 z-50 bg-blue-600 shadow-md text-white flex justify-between items-center flex-row ';
+  const btnStyles = ' hover:border-b-2 hover:border-white duration-100 ease-in'
+  const loginBtn = 'mr-8 border border-white py-2 px-4 duration-300 text-white  ease-in-out rounded-md hover:bg-white hover:text-blue-800 ';
   const cartBtn = ' duration-100 ease-in'
   return (
     <div className={container}>
@@ -36,12 +36,14 @@ const Navbar = () => {
             <button 
               className={btnStyles}
               onClick={ () => router.push('/categories')}
+              name='categories'
             >
               Categories
             </button>
             <button 
               className={`${btnStyles} mx-10`}
               onClick={ () => document.querySelector('#footer').scrollIntoView({ behavior: 'smooth' })}
+              name='contact'
             >
                 Contact
             </button>
@@ -51,9 +53,10 @@ const Navbar = () => {
           <button 
             className={cartBtn}
             onClick={ () => router.push('/cart')}
+            name='cart'
           >
             <IconButton aria-label="cart" sx={{mr: 2}}>
-              <StyledBadge badgeContent={line_items.length} color='secondary'>
+              <StyledBadge badgeContent={line_items.length} color='secondary' sx={{ color: 'white'}}>
                 <ShoppingCartIcon />
               </StyledBadge>
             </IconButton>
@@ -61,6 +64,7 @@ const Navbar = () => {
           <button 
             className={loginBtn}
             onClick={ () => router.push('/login')}
+            name='login'
           >
             Login 
           </button>

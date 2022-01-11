@@ -5,7 +5,8 @@ import React from 'react'
 
 const Footer = () => {
     return (
-        <div className='w-3/4 h-full m-auto text-white flex flex-row '>
+        <div>
+            <div className='w-3/4 h-full m-auto text-white flex flex-row '>
 
             <div className='flex flex-row items-center border-r-2 pr-1 w-3/5 h-full justify-center '>
                 <p className=' p-4 text-semibold text-xl'>Contact us</p>
@@ -30,13 +31,14 @@ const Footer = () => {
             <div className='w-2/5 h-full flex flex-col justify-center items-center' >
                 <p className='flex justify-center items-center'>Follow us in our social media</p>
                 <div className='flex flex-row  mt-4 justify-center items-center'>
-                    <button><FontAwesomeIcon icon={faFacebook} size='3x' className='rounded-full hover:shadow-md hover:shadow-white hover:scale-110 duration-200'/></button>
-                    <button> <FontAwesomeIcon icon={faTwitter} size='3x' className='mx-5 rounded-full hover:shadow-md hover:shadow-white hover:scale-110 duration-200' /></button>
-                    <button><FontAwesomeIcon icon={faInstagram} size='3x' className='rounded-full hover:shadow-md hover:shadow-white hover:scale-110 duration-200' /></button>
+                    <button name='facebook' ><FontAwesomeIcon icon={faFacebook} size='3x' className='rounded-full hover:shadow-md hover:shadow-white hover:scale-110 duration-200'/></button>
+                    <button name='twitter'> <FontAwesomeIcon icon={faTwitter} size='3x' className='mx-5 rounded-full hover:shadow-md hover:shadow-white hover:scale-110 duration-200' /></button>
+                    <button name='instagram' ><FontAwesomeIcon icon={faInstagram} size='3x' className='rounded-full hover:shadow-md hover:shadow-white hover:scale-110 duration-200' /></button>
                 </div>
                 
             </div>
             
+        </div>
         </div>
     )
 }

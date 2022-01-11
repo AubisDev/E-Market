@@ -48,7 +48,7 @@ export default function CategoryPage({ categories, products }) {
     console.log(categories)
     return (
       <React.Fragment>
-        <h1>{category.name}</h1>
+        <h1>{categories.name}</h1>
 
   
         <ProductList products={products} />

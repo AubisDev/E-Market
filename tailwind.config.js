@@ -13,7 +13,8 @@ module.exports = {
         '10vh' : '10vh',
         '30vh' : '30vh',
         '20vh' : '20vh',
-        '25vh' : '25vh'
+        '25vh' : '25vh',
+        '90vh' : '90vh'
         },
         width: {
           '90vw': '90vw',

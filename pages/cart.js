@@ -86,9 +86,6 @@ export default function CartPage() {
     return(
        (
            <div className="w-screen h-screen overflow-x-hidden">
-                <div style={{ height: '10vh' }}>
-                    <Navbar/>
-                </div>
                 <div className="w-4/6 h-90vh m-auto ">
                     
                     <div className="w-full h-90vh relative top-1/2 -translate-y-1/2  flex flex-row">
@@ -131,7 +128,7 @@ export default function CartPage() {
                                     <p className="font-semibold text-lg">{subtotal.formatted_with_symbol }</p>
                                 </div>
                                 
-                                <button className="py-3 bg-gray-600 text-white">
+                                <button className="py-3 bg-gray-600 text-white" name='checkout'>
                                     Checkout
                                 </button>
 
@@ -141,9 +138,9 @@ export default function CartPage() {
                     </div>
 
                 </div>
-                <footer className='w-full h-25vh bg-gray-800' id='footer'>
-                    <Footer/>
-                </footer>
+            <footer className='w-full h-25vh bg-gray-800 ' id='footer'>
+                <Footer/>
+            </footer>
               
            </div>
        )
