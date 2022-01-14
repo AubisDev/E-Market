@@ -11,7 +11,7 @@ const InventoryCard = ({ product }) => {
             href={`/products/${permalink}`}
         >
             <a className='bg-gray-300 border-2 rounded-md h-72  w-60 hover:shadow-md hover:brightness-110  duration-300 ease-in'>
-                <div className='h-3/4 w-full hover:brightness-100'>
+                <div className='min-h-14 min-w-14 max-h-14 max-w-14 hover:brightness-100'>
                         <img src={ product.image.url } alt={ product.name } className='w-full h-full object-cover p-4  bg-gray-300 group-hover:scale-105 ease-in-out duration-300 shadow-md hover:shadow-lg'/> 
                 </div>
                 

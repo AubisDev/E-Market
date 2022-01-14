@@ -6,6 +6,7 @@ const cartDispatchContext = createContext();
 const cartStateContext = createContext();
 
 const SET_CART = 'SET_CART';
+const ACTIVE_MENU = 'ACTIVE_MENU'
 
 const initialState = {
     total_items: 0,

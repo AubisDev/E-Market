@@ -8,7 +8,7 @@ const Category = ({ category }) => {
   const {name, children, slug } = category;
 
   return (
-    <div className='mr-5  '>
+    <div className='mr-5 mt-10 lg:mt-0 '>
       <Link href={`/categories/${slug}`}>
         <a className='font-semibold text-xl text-blue-800 '> {name} <FontAwesomeIcon icon={faArrowCircleRight} className='ml-2' /></a>
       </Link>

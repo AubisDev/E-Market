@@ -6,7 +6,7 @@ import Discover from '../components/Discover/Discover';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowCircleDown } from '@fortawesome/free-solid-svg-icons'
 import Footer from '../components/Footer/Footer';
-
+import ResponsiveMenu from '../components/ResponsiveMenu/ResponsiveMenu';
 
 export async function getStaticProps() {
   const merchant = await commerce.merchants.about();
@@ -25,6 +25,7 @@ export async function getStaticProps() {
 
 export default function IndexPage({ merchant, categories, products }) {
   const [isLoading, setIsLoading] = useState(false);
+  
   // console.log(categories);
   // console.log(products)
   // console.log(merchant)
@@ -39,11 +40,12 @@ export default function IndexPage({ merchant, categories, products }) {
 
   return (
     <div className='w-screen h-screen overflow-x-hidden '>
-
+      
+    
       <section className='w-full  flex justify-center mt-10 animate__animated animate__fadeIn animate__slower'>
         <SlideShow/>
       </section>
-      <div className='bg-divider-bg bg-center h-40 w-screen mt-20 shadow-md '> 
+      <div className='bg-divider-bg lg:bg-center bg-right h-40 w-screen mt-20 shadow-md '> 
       
           <p className='relative top-1/2 transform -translate-y-1/2 w-2/3 m-auto text-3xl '
             >Check out last update in our stuck 
@@ -51,13 +53,15 @@ export default function IndexPage({ merchant, categories, products }) {
           </p>
           
       </div>
-      <section className='grid grid-cols-2  gap-4 w-90vw m-auto mt-20 overflow-x-hidden '>
+      <section className='lg:grid grid-cols-1  xl:grid-cols-2  gap-4 w-4/5 lg:w-full xl:w-90vw m-auto mt-20 overflow-x-hidden '>
       {categories.map( category => <Discover key={category.id} category={category} /> )}
 
       </section>
-      <footer className='w-full h-25vh bg-gray-800 ' id='footer'>
+      <footer className='w-full h-50vh  bg-gray-800 ' id='footer'>
          <Footer/>
       </footer>
+
+      
     </div>
   );
 }

@@ -20,7 +20,7 @@ const SlideShow = () => {
                     width : 1200,
                     gap   : '1rem',
                     height: 400,
-                    autoplay: true,
+                    autoplay: false,
                     interval: 3000,
                     pauseOnHover:true,
                     speed: 1000
@@ -29,11 +29,11 @@ const SlideShow = () => {
             >
                 <SplideSlide>
                     <div className='bg-white h-full '>
-                        <div className='absolute bg-black/40 h-full w-full'>
-                            <div className='text-white w-72 flex flex-col relative top-1/2 -translate-y-1/2 ml-24 '>
-                                <p className='text-4xl font-bold text-center'>The best in toys and clothes for your kids</p>
+                        <div className='absolute bg-black/60 md:bg-black/40 h-full w-full'>
+                            <div className='text-white w-52 md:w-72 flex flex-col relative top-1/2 -translate-y-1/2  ml-10 sm:ml-24 '>
+                                <p className='text-3xl w-full md:w-auto md:text-4xl font-bold text-center'>The best in toys and clothes for your kids</p>
                                 <button
-                                    className='bg-green-600 hover:bg-green-700 transition duration-200 rounded-lg mt-4 m-auto py-2 font-semibold text-xl w-3/4'
+                                    className='bg-green-600 hover:bg-green-700 transition duration-200 rounded-lg mt-4 m-auto py-2 px-2  font-semibold text-xl w-3/4'
                                     onClick={ () => router.push('/categories/kids')}
                                 >
                                     Go to section
@@ -48,10 +48,10 @@ const SlideShow = () => {
                 <SplideSlide>
                     <div className='bg-white h-full '>
                         <div className='absolute bg-black/50 h-full w-full'>
-                            <div className='text-white w-full flex flex-col relative top-1/2 -translate-y-1/2 ml-60'>
-                                <p className='text-4xl  w-1/2 font-bold   text-center m-auto mt-20 '>Dresses, purses, pants and blouses. The best quality for our favorite women</p>
+                            <div className='text-white w-80 lg:w-2/5 h-full flex flex-col m-auto sm:m-0 relative top-1/2 left-1/5 sm:left-1/2 '>               
+                                <p className='text-3xl lg:text-4xl  font-bold w-full text-center '>Dresses, blouses, pants, and more for our favorite women</p>
                                 <button
-                                    className='bg-pink-500 hover:bg-pink-600 transition duration-200 rounded-lg mt-4 m-auto py-2 font-semibold text-xl w-72 '
+                                    className='bg-pink-500 hover:bg-pink-600 font-semibold transition duration-200 rounded-lg w-1/2 py-2 px-4 mt-2 m-auto'
                                     onClick={ () => router.push('/categories/men')}
                                 >
                                     Check it out! 
@@ -64,10 +64,10 @@ const SlideShow = () => {
                 <SplideSlide>
                     <div className='bg-white h-full '>
                         <div className='absolute bg-black/40 h-full w-full'>
-                            <div className='text-white w-72 flex flex-col relative top-1/2 -translate-y-1/2 ml-24 '>
-                                <p className='text-4xl font-bold text-center'>Clothes and accesories for men</p>
+                            <div className='text-white w-72 sm:w-96 flex flex-col relative top-1/2 -translate-y-1/2 justify-center items-center '>
+                                <p className='text-3xl w-3/4  md:text-4xl font-bold text-center'>Clothes and accesories for men</p>
                                 <button
-                                    className='bg-blue-700 hover:bg-blue-800 transition duration-200 rounded-lg mt-4 m-auto py-2 font-semibold text-xl w-3/4'
+                                    className='bg-blue-700 hover:bg-blue-800 transition duration-200 rounded-lg mt-4 w-3/4 sm:m-auto py-2 px-4 font-semibold text-xl'
                                     onClick={ () => router.push('/categories/women')}
                                 >
                                     Go to section
@@ -80,10 +80,10 @@ const SlideShow = () => {
                 <SplideSlide>
                     <div className=' h-full '>
                         <div className='absolute bg-black/50 h-full w-full'>
-                            <div className='text-white h-full w-full flex flex-row relative top-1/2 -translate-y-1/2 ml-32 mt-14'>
-                                <p className='text-4xl  w-1/4 font-bold   text-center mt-36   '>Electronics for your home and your favorites brand</p>
+                            <div className='text-white flex flex-col w-3/5  sm:w-2/5 relative top-1/2 left-1/4  sm:-ml-12 justify-center items-center -mt-12  sm:mt-0'>
+                                <p className='text-2xl  md:text-3xl w-full sm:w-4/5 md:w-3/5 text-center font-bold '>Electronics for your home and your favorites brands</p>
                                 <button
-                                    className='bg-purple-700 hover:bg-purple-800 transition duration-200 rounded-lg mt-4 h-1/6  py-1 font-semibold text-xl w-60  relative top-1/2 -translate-y-1/2'
+                                    className='bg-purple-700 hover:bg-purple-800 transition duration-200 font-semibold rounded-md mt-2 py-2 px-4 w-full sm:w-3/4 md:w-2/4 '
                                     onClick={ () => router.push('/categories/electronics')}
                                 >
                                     Check it out! 

@@ -85,12 +85,12 @@ export default function CartPage() {
 
     return(
        (
-           <div className="w-screen h-screen overflow-x-hidden">
-                <div className="w-4/6 h-90vh m-auto ">
+           <div className="w-screen h-auto overflow-x-hidden mt-5">
+                <div className="w-full sm:w-90pw md:w-4/5 xl:w-4/6 h-90vh m-auto ">
                     
-                    <div className="w-full h-90vh relative top-1/2 -translate-y-1/2  flex flex-row">
+                    <div className="w-full  lg:h-90vh relative top-1/2 -translate-y-1/2  flex flex-col lg:flex-row">
 
-                        <div className="w-3/4 h-full overflow-scroll scroll-smooth shadow-xl border-2 bg-white text-gray-700 border-gray-500">
+                        <div className="mt-60 lg:mt-0 w-full sm:w-90pw m-auto lg:w-3/4 h-full overflow-scroll scroll-smooth shadow-xl border-2 bg-white text-gray-700 border-gray-500">
                             
                             <div className="10ph w-full grid grid-cols-5 p-2 border-b-2 b font-text-1 font-semibold">
                                 <p className="col-span-2 ml-3">Product Details</p>
@@ -109,7 +109,7 @@ export default function CartPage() {
                            
                         </div>
 
-                        <div className="w-1/4 h-3/4 relative top-1/2 -translate-y-1/2 shadow-lg shadow-gray-500  border-2 border-gray-500 bg-white ml-3 font-text-1 ">
+                        <div className="w-2/5 lg:w-1/4 h-1/2 xl:h-3/4 relative top-1/2 -translate-y-1/2 shadow-lg shadow-gray-500  border-2 border-gray-500 bg-white ml-3 font-text-1 ">
                            <div className="h-full w-full flex flex-col justify-between  ">
                             <p className="text-2xl font-semibold py-3 border-b-2 mt-2 text-center ">Order summary</p>
 
@@ -138,7 +138,7 @@ export default function CartPage() {
                     </div>
 
                 </div>
-            <footer className='w-full h-25vh bg-gray-800 ' id='footer'>
+            <footer className='w-full h-25vh bg-gray-800 mt-10' id='footer'>
                 <Footer/>
             </footer>
               

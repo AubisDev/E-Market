@@ -122,7 +122,7 @@ const Inventory = ( {products, categories} ) => {
                     <div className='flex flex-col'>
                     {categories.map( category => (
                         <sdiv className='flex flex-col  ml-3' key={category.id}>
-                            <div className='flex flex-row'>
+                            <div className='flex flex-row items-center'>
                                 <input 
                                     type='checkbox'
                                     name={category.name}
